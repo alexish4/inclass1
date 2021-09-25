@@ -22,7 +22,6 @@ int main(void)
         printf("Press 3 to quit\n");
         scanf("%d", &firstChoice);
         int secondChoice = 0;
-        char quit; // character that determines to quit the game
 
         time_t t;
         srand((unsigned) time(&t)); //initialize random number
@@ -39,66 +38,24 @@ int main(void)
                 //else
                 //{
                     number = rand() & maxNumber;
-                    printf("Pick a number between 1 and %d: \n", maxNumber);
+                    printf("Pick a number between 1 and %d, or enter q to exit: \n", maxNumber);
                     scanf("%d", &secondChoice);
                     while(secondChoice != number)
                     {
                         if(secondChoice > number)
                         {
-                            printf("You guessed incorrectly, would you like to continue? To quit enter q, otherwish enter y: \n");
-                            scanf("%s", &quit);
-                            if(quit != "q")
-                            {
-                                printf("Enter another number, the number is lower than the one you entered: \n");
-                                scanf("%d", &secondChoice);
-                            }
-                            else
-                            {
-                                secondChoice = 0;
-                                while(secondChoice != number)
-                                {
-                                    secondChoice++; //conditions to quit
-                                    firstChoice = 0; //conditions to quit
-                                }
-                            }
+                            printf("Guess again, the number is lower than the one you entered: \n");
+                            scanf("%d", &secondChoice);
                         }
                         else if(secondChoice < number)
                         {
-                            printf("You guessed incorrectly, would you like to continue? To quit enter q, otherwish enter y: \n");
-                            scanf("%s", &quit);
-                            if(quit != "q")
-                            {
-                                printf("Guess again, the number is higher than the one you entered: \n");
-                                scanf("%d", &secondChoice);
-                            }
-                            else
-                            {
-                                secondChoice = 0;
-                                while(secondChoice != number)
-                                {
-                                    secondChoice++; //conditions to quit
-                                    firstChoice = 0; //conditions to quit
-                                }
-                            }
+                            printf("Guess again, the number is higher than the one you entered: \n");
+                            scanf("%d", &secondChoice);
                         }
                         else if(secondChoice > maxNumber)
                         {
-                            printf("You guessed incorrectly, would you like to continue? To quit enter q, otherwish enter y: \n");
-                            scanf("%s", &quit);
-                            if(quit != "q")
-                            {
-                                printf("Cannot enter number bigger than the max value please enter again: \n");
-                                scanf("%d", &secondChoice);
-                            }
-                            else
-                            {
-                                secondChoice = 0;
-                                while(secondChoice != number)
-                                {
-                                    secondChoice++; //conditions to quit
-                                    firstChoice = 0; //conditions to quit
-                                }
-                            }
+                            printf("Cannot enter number bigger than the max value please enter again: \n");
+                            scanf("%d", &secondChoice);
                         }
                     }
                 //}
@@ -113,12 +70,6 @@ int main(void)
         {
             printf("What number do you want to change to the max number? \n");
             scanf("%d", &maxNumber);
-            while(maxNumber < 0)
-            {
-                printf("The number you have entered is negative, please enter a positive number: \n");
-                printf("What number do you want to change to the max number? \n");
-                scanf("%d", &maxNumber);
-            }
             printf("Returning back to the main menu. \n");
             firstChoice = 0;// giving the criteria to go back to the main menu
         }
