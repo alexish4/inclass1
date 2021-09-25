@@ -3,11 +3,6 @@
 2. Setup random generator
 3. Put into argument for method
 4. Calculate tip and tax
-
-*/
-
-/*
-
 */
 
 #include <stdio.h>
